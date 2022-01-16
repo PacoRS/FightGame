@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+import Controler.Controlador;
+import Model.Partida;
+
+public class Ejecutable {
+
+	public static void main(String[] args) {
+		Partida.iniciaPartida();
+				
+	}
+
+}
