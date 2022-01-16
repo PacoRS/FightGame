@@ -24,11 +24,11 @@ public class Menu {
 	}
 	public static void menu4(String p) {
 		System.out.println("");
-		System.out.println("*****************************************");
-		System.out.println("*                                       *");
-		System.out.println("*         El ganador es "+p+"            *");
-		System.out.println("*                                       *");
-		System.out.println("*****************************************");
+		System.out.println("*********************************************");
+		System.out.println("*                                           *");
+		System.out.println("*         El ganador es "+p+"               *");
+		System.out.println("*                                           *");
+		System.out.println("*********************************************");
 	}
 	public static void menu5() {
 		System.out.println("");

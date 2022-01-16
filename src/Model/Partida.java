@@ -30,10 +30,12 @@ public class Partida {
 	public static void cantidadJugadores(int a) {
 		personajes = new Personaje[a];
 	}
-/**
- * Este metodo me permite elejir el personaje con el que el jugador luchara
- * @param a numero entero para elejir el personaje y añadirlo a otro 
- */
+
+	/**
+	 * Este metodo me permite elejir el personaje con el que el jugador luchara
+	 * 
+	 * @param a numero entero para elejir el personaje y añadirlo a otro
+	 */
 	public static void eligeJugador(int a) {
 
 		for (int i = 0; i < lucha.length; i++) {
@@ -106,23 +108,63 @@ public class Partida {
 		}
 
 	}
-/**
- * Permite elejir dichos personajes del array de personajes
- */
+
+	/**
+	 * Permite elejir dichos personajes del array de personajes
+	 */
 	public static void eligePersonajes() {
+		int eleccion = 0;
 
 		for (int i = 0; i < p.length; i++) {
 			System.out.println(p[i] + " posicion= " + (i + 1));
 		}
 
 		for (int i = 0; i < personajes.length; i++) {
-			
-		}
+			Menu.menu2();
+			eleccion = Utilidades.leeEntero();
+			switch (eleccion) {
 
+			case 1:
+				personajes[i] = p[0];
+				break;
+			case 2:
+				personajes[i] = p[1];
+				break;
+			case 3:
+				personajes[i] = p[2];
+				break;
+			case 4:
+				personajes[i] = p[3];
+				break;
+			case 5:
+				personajes[i] = p[4];
+				break;
+			case 6:
+				personajes[i] = p[5];
+				break;
+			case 7:
+				personajes[i] = p[6];
+				break;
+			case 8:
+				personajes[i] = p[7];
+				break;
+			case 9:
+				personajes[i] = p[8];
+				break;
+			case 10:
+				personajes[i] = p[9];
+				break;
+
+			default:
+				break;
+			}
+
+		}
 	}
-/**
- * Creaccion a fuego de los personajes
- */
+
+	/**
+	 * Creaccion a fuego de los personajes
+	 */
 	public static void personajes() {
 		Partida p = new Partida(10);
 
@@ -151,10 +193,12 @@ public class Partida {
 		p.newPersonaje(guerrero5);
 
 	}
-/**
- * nos habisa si el array esta lleno
- * @return
- */
+
+	/**
+	 * nos habisa si el array esta lleno
+	 * 
+	 * @return
+	 */
 	public boolean isFull() {
 		boolean lleno = true;
 		for (int i = 0; i < p.length; i++) {
@@ -185,10 +229,12 @@ public class Partida {
 			System.out.println(lucha[i] + " posicion= " + (i + 1));
 		}
 	}
-/**
- * nos permite añadir los peronajes al array
- * @param a el peronaje que emos seleccionado para el array
- */
+
+	/**
+	 * nos permite añadir los peronajes al array
+	 * 
+	 * @param a el peronaje que emos seleccionado para el array
+	 */
 	public void newPersonaje(Personaje a) {
 		boolean insertado = false;
 		if (this.getPersonaje(a) != -1) {
@@ -217,10 +263,12 @@ public class Partida {
 		}
 		return posi;
 	}
-/**
- * este metodo recoge todos los metedos en orden para que funcione nuestro juego
- * @param n
- */
+
+	/**
+	 * este metodo recoge todos los metedos en orden para que funcione nuestro juego
+	 * 
+	 * @param n
+	 */
 	public static void partida(int n) {
 		Scanner sc = new Scanner(System.in);
 		int a = 0;
@@ -235,24 +283,27 @@ public class Partida {
 		while (n >= 0 && Partida.lucha() == true) {
 			n--;
 			Partida.lucha();
-			System.out.println(Partida.lucha());
 			if (Partida.lucha() == false) {
 				Menu.menu5();
 			}
 		}
 
 	}
-/**
- * Este llama a partida para luego el metodo inicia partida lo llamemos en el main
- */
+
+	/**
+	 * Este llama a partida para luego el metodo inicia partida lo llamemos en el
+	 * main
+	 */
 	public static void iniciaPartida() {
 		Menu.menu1();
 		Partida.partida(Utilidades.leeEntero());
 	}
-/**
- * este permite que se cumplan las rondas y los personajes peleen entre ellos
- * @return
- */
+
+	/**
+	 * este permite que se cumplan las rondas y los personajes peleen entre ellos
+	 * 
+	 * @return
+	 */
 	public static boolean lucha() {
 		boolean result = true;
 		int a = 0;
@@ -274,28 +325,29 @@ public class Partida {
 		System.out.println("");
 		System.out.println(p1 + " --> p1");
 		System.out.println(p2 + " --> p2");
-		
-			while (p1.getVida() > 0 && p2.getVida() > 0) {
-				ataqueP1(p1, p2);
-				ataqueP2(p2, p1);
-			}
-		
+
+		while (p1.getVida() > 0 && p2.getVida() > 0) {
+			ataqueP1(p1, p2);
+			ataqueP2(p2, p1);
+		}
+
 		if (p1.getVida() <= 0) {
 			Menu.menu4(p2.getNombre());
 
-			//lucha[0] = null;
+			// lucha[0] = null;
 			result = false;
 
-		}
-		if (p2.getVida() <= 0) {
+		} else {
 			Menu.menu4(p1.getNombre());
 			lucha[1] = null;
 			p1.setVida(10);
 		}
 		return result;
 	}
+
 	/**
 	 * realiza un ataque a p2
+	 * 
 	 * @param p1 recoge una persona en este caso p1
 	 * @param p2 recoge una persona en este caso p2
 	 * @return
@@ -375,12 +427,14 @@ public class Partida {
 		}
 		return vida;
 	}
-/**
- * realiza un ataque a p1
- * @param p1 recoge una persona en este caso p1
- * @param p2 recoge una persona en este caso p2
- * @return
- */
+
+	/**
+	 * realiza un ataque a p1
+	 * 
+	 * @param p1 recoge una persona en este caso p1
+	 * @param p2 recoge una persona en este caso p2
+	 * @return
+	 */
 	public static int ataqueP2(Personaje p1, Personaje p2) {
 		int vida = 0;
 
