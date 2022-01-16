@@ -3,6 +3,8 @@ package Views;
 import Model.Personaje;
 
 public class Menu {
+	//Estos son todos los menos que he creado para el juego
+	
 	public static void menu1() {
 		System.out.println("**********************************************************************");
 		System.out.println("* Elije la cantida de jugadores con la que deseas jugar. Nota: Max10 *");

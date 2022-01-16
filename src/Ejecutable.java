@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-import Controler.Controlador;
 import Model.Partida;
 
 public class Ejecutable {

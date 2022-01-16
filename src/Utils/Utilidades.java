@@ -4,7 +4,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utilidades {
-	
+	/**
+	 * permite controlar las entradas del ususario para que solo inttroduzca enteros
+	 * @return
+	 */
 	public static int leeEntero() {
 		Scanner teclado = new Scanner(System.in);
 		int numero = -1;
